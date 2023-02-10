@@ -1,0 +1,29 @@
+{
+  "root": true,
+  "project": {
+    "name": "wellbeing_cms"
+  },
+  "api": {
+    "projectId": "c6jh1rru",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "@sanity/vision"
+      ]
+    }
+  },
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./wellbeingcms/schemas/schema"
+    }
+  ]
+}

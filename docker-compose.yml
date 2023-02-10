@@ -1,0 +1,31 @@
+version: "3.4"
+
+services:
+  wellbeing_web:
+    # image: wellbeing_web
+    build:
+      context: .
+      dockerfile: ./wellbeing_web/docker/frontend.dockerfile
+    working_dir: /var/www/wellbeing_web
+    volumes:
+      # - /var/www/wellbeing_web/node_modules
+      - ./:/var/www:cached
+    tty: true
+    environment:
+      - NETLIFY_AUTH_TOKEN=NETLIFY_AUTH_TOKEN
+    ports:
+      - 3000:3000
+      - 3333:3333
+      - 8888:8888
+  wellbeing_api:
+    # image: wellbeing_api
+    build:
+      context: .
+      dockerfile: wellbeing_api/docker/backend.dockerfile
+    volumes:
+      - ./:/var/www:cached
+    tty: true
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - 5000:5001

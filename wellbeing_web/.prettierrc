@@ -1,0 +1,6 @@
+{
+  "semi": false,
+  "singleQuote": true,
+  "prettier.tabWidth": 4,
+  "bracketSameLine": true
+}
